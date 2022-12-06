@@ -1,6 +1,7 @@
 import React from "react";
 import Board from "./board";
 
+//Game renders a board with placeholder value that will modify later
 
 class Game extends React.Component {
     render() {
