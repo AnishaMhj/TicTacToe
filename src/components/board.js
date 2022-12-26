@@ -55,6 +55,6 @@ class Board extends React.Component {
             </div>
         );
     }
-}
+}973679306
 
 export default Board;
