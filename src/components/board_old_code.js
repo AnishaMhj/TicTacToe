@@ -11,7 +11,6 @@ class Board extends React.Component {
         super(props);
         this.state = {
             squares: Array(9).fill(null),
-            xIsNext: true,      //sets the first move to 'X' by default
         };
     }
 
@@ -19,11 +18,8 @@ class Board extends React.Component {
     //.slice() is called to create a copy of the squares array to modify instead of modifying the existing array
     handleClick(i) {
         const squares = this.state.squares.slice();
-        squares[i] = this.state.xIsNext ? 'X' : 'O';
-        this.setState({
-            squares: squares,
-            xIsNext: !this.state.xIsNext,        //function to flip the value of xIsNext
-        });
+        squares[i] = 'X';
+        this.setState({ squares: squares });
     }
 
     //Passing two props 'value' and 'onClick' from Board to Square
@@ -36,7 +32,7 @@ class Board extends React.Component {
     }
 
     render() {
-        const status = 'Next player: ' + (this.state.xIsNext ? 'X' : 'O'); //to display which player has the next turn
+        const status = 'Next player: X';
 
         return (
             <div>
