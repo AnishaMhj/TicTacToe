@@ -1,5 +1,6 @@
 import React from "react";
 import Square from "./square";
+import CalculateWinner from "./calculateWinner";
 
 //Board renders 9 squares 
 //this is a parent component that is passing props to a child Square component
@@ -36,7 +37,15 @@ class Board extends React.Component {
     }
 
     render() {
-        const status = 'Next player: ' + (this.state.xIsNext ? 'X' : 'O'); //to display which player has the next turn
+        const winner = CalculateWinner(this.state.squares);
+        let status;
+        if (winner) {
+            status = 'Winner: ' + winner;
+        } else {
+            status = 'Next player: ' + (this.state.xIsNext ? 'X' : 'O');
+        }
+        // const status = 'Next player: ' + (this.state.xIsNext ? 'X' : 'O'); //to display which player has the next turn
+
 
         return (
             <div>
@@ -56,7 +65,7 @@ class Board extends React.Component {
                     {this.renderSquare(7)}
                     {this.renderSquare(8)}
                 </div>
-            </div>
+            </div >
         );
     }
 }
