@@ -52,7 +52,8 @@ class Game extends React.Component {
                 'Go to move #' + move :
                 'Go to game start';
             return (
-                <li>
+                //moves are unique so can be used as a key
+                <li key={move}>
                     <button
                         onClick={() => this.jumpTo(move)}
                     >{desc}</button>
